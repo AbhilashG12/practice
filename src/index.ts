@@ -1,16 +1,14 @@
-// main.ts
-const { Worker } = require("worker_threads");
+import express, { Request, Response } from 'express';
 
-function runCpuInWorker(): Promise<number> {
-  return new Promise((resolve, reject) => {
-    const worker = new Worker("./src/worker.ts"); 
+const app = express();
+const PORT = 3000;
 
-    worker.on("message", resolve);
-    worker.on("error", reject);
-  });
-}
-
-runCpuInWorker().then((result) => {
-  console.log("Worker result:", result);
+// Define a GET route for the root URL '/'
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World from Express and TypeScript!');
 });
-console.log("Main thread is FREE now!");
+
+// Start the server and listen on the specified port
+app.listen(PORT, () => {
+  console.log(`Server is running on [http://localhost:${PORT}](http://localhost:${PORT})`);
+});

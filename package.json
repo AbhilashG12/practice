@@ -2,22 +2,35 @@
   "name": "practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "node --loader tsx --experimental-specifier-resolution=node src/index.ts",
+    "start": "node src/index.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^25.0.10",
-    "ts-node": "^10.9.2",
+    "nodemon": "^3.1.9",
+    "tsx": "^4.19.3",
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "worker-threads": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
