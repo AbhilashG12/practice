@@ -1,20 +1,15 @@
-import express, { type Request,type Response } from 'express';
+import {MiniExpress} from "./miniexpress.ts"
+import http from "http";
 
-const app = express();
-const PORT = 8000;
+const app = new MiniExpress();
 
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World from Express and TypeScript!');
+app.use((req, res, next) => {
+  console.log("Middleware hit");
+  next();
 });
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World from Express and TypeScript!');
-});
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World from Express and TypeScript!');
+app.get("/hello", (req, res) => {
+  res.end("Hello from mini express");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on [http://localhost:${PORT}](http://localhost:${PORT})`);
-});
+http.createServer((req, res) => app.handleRequest(req, res)).listen(3000);

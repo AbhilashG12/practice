@@ -1,49 +1,26 @@
 {
   "compilerOptions": {
-    // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-    
-    // CRITICAL CHANGES FOR ES MODULES:
-    "module": "NodeNext", // or "ESNext" - "NodeNext" is best for Node.js
-    "moduleResolution": "NodeNext", // Must match module setting
-    
-    // Environment Settings
+
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+
     "target": "ES2020",
-    
-    // ES Module Interop
+    "lib": ["es2020"],
+
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    
-    // Type definitions
-    "types": ["node"],
-    "lib": ["ES2020"],
-    
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    
-    // ES Module Specific
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    
-    // Recommended Options
+    "allowImportingTsExtensions": false,
+
     "strict": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "resolveJsonModule": true,
+    "sourceMap": true
   },
-  
-  // Include source files
-  "include": ["src/**/*"],
-  
-  // Exclude node_modules and build outputs
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
