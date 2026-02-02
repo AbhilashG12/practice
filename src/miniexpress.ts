@@ -1,5 +1,5 @@
 import type { Handler } from "express";
-import { MiniRouter } from "./minirouter.ts";
+import { MiniRouter } from "./minirouter";
 
 export class MiniExpress {
   middlewares: Handler[] = [];

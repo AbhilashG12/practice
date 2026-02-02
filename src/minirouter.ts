@@ -30,4 +30,3 @@ const server = http.createServer((req,res)=>{
   router.handle(req,res)
 })
 
-server.listen(3000)

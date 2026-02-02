@@ -1,4 +1,4 @@
-import {MiniExpress} from "./miniexpress.ts"
+import {MiniExpress} from "./miniexpress"
 import http from "http";
 
 const app = new MiniExpress();
@@ -12,4 +12,4 @@ app.get("/hello", (req, res) => {
   res.end("Hello from mini express");
 });
 
-http.createServer((req, res) => app.handleRequest(req, res)).listen(3000);
+http.createServer((req, res) => app.handleRequest(req, res)).listen(8000);
